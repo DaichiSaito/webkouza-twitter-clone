@@ -1,0 +1,18 @@
+.container
+  .row
+    .col-md-6.col-12.offset-md-3
+      .card
+        .card-header
+          h1
+            | ツイート作成
+        .card-body
+          - if @tweet.errors.present?
+            ul#error_explanation
+              - @tweet.errors.full_messages.each do |message|
+                li= message
+          = form_with model: @tweet, local: true do |f|
+            = f.label :content
+            = f.text_area :content, class: 'form-control'
+            = f.label :image
+            = f.file_field :image, class: 'form-control mb-3'
+            = f.submit 'ツイートする', class: 'btn btn-primary'
