@@ -1,0 +1,13 @@
+li
+  div
+    = tweet.user.name
+  div.d-flex
+    div.mr-3
+      div
+        = image_tag 'dummy.png', size: '50x50', class: 'rounded-circle'
+    div.w-100
+      div
+        = simple_format(tweet.content)
+      div.text-right
+        = tweet.created_at
+  hr
