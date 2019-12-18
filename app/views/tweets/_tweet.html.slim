@@ -10,4 +10,7 @@ li
         = simple_format(tweet.content)
       div.text-right
         = tweet.created_at
+  div
+    - if current_user.id == tweet.user_id
+      = link_to '削除', tweet_path(tweet), method: :delete, class: 'btn btn-danger', data: { confirm: '削除しますか？' }
   hr

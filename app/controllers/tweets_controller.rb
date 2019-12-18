@@ -31,6 +31,12 @@ class TweetsController < ApplicationController
     end
   end
 
+  def destroy
+    @tweet = current_user.tweets.find(params[:id])
+    @tweet.destroy!
+    redirect_to tweets_path, notice: 'ツイートを削除しました'
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:content)
