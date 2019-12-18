@@ -4,7 +4,7 @@ li
   div.d-flex
     div.mr-3
       div
-        = image_tag 'dummy.png', size: '50x50', class: 'rounded-circle'
+        = image_tag tweet.user.avater_image_url, size: '50x50', class: 'rounded-circle'
     div.w-100
       div
         = simple_format(tweet.content)
@@ -12,5 +12,16 @@ li
         = tweet.created_at
   div
     - if current_user.id == tweet.user_id
-      = link_to '削除', tweet_path(tweet), method: :delete, class: 'btn btn-danger', data: { confirm: '削除しますか？' }
+      = link_to '削除', tweet_path(tweet), method: :delete, class: 'btn btn-danger mr-3', data: { confirm: '削除しますか？' }
+
+
+
+
+
+    / - like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)
+    / - if like.nil?
+    /   = link_to 'いいねする', tweet_likes_path(tweet), class: 'btn btn-success', method: :post
+    / - else
+    /   = link_to 'いいねを取り消す', like_path(like), class: 'btn btn-danger', method: :delete
+
   hr

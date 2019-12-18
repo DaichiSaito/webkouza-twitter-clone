@@ -18,5 +18,7 @@
             = f.label :password
             = f.password_field :password, class: 'form-control'
             = f.label :password_confirmation
-            = f.password_field :password_confirmation, class: 'form-control mb-3'
+            = f.password_field :password_confirmation, class: 'form-control'
+            = f.label :avater_image
+            = f.file_field :avater_image, class: 'form-control mb-3'
             = f.submit '更新', class: 'btn btn-primary'
